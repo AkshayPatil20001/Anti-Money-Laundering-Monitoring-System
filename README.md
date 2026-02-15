@@ -1,60 +1,67 @@
-# Intelligent Financial Crime Detection System (IFCDS)
+# AI-Driven Financial Crime Detection & Compliance System
+### PG-DBDA Capstone Project (C-DAC)
 
-> **Advanced AI-driven Anti-Money Laundering (AML) platform integrating Unsupervised Machine Learning and Generative AI for real-time anomaly detection and automated compliance reporting.**
-
-![Project Status](https://img.shields.io/badge/Status-Research%20Prototype-blue)
-![Python](https://img.shields.io/badge/AI%20Core-Python%203.11-yellow)
-![ML](https://img.shields.io/badge/ML-Isolation%20Forest-orange)
-![LLM](https://img.shields.io/badge/GenAI-Llama--3%20%2B%20RAG-purple)
+![Project Status](https://img.shields.io/badge/Status-Completed-success)
+![Domain](https://img.shields.io/badge/Domain-FinTech%20%7C%20Big%20Data-blue)
+![Tech Stack](https://img.shields.io/badge/Stack-Python%20%7C%20Django%20%7C%20React%20%7C%20ML-orange)
 
 ## 📌 Project Overview
 
-This project addresses the critical challenge of detecting sophisticated financial crimes in high-volume transaction datasets. Unlike traditional rule-based systems, this solution leverages **Unsupervised Learning (Isolation Forest)** to identify unknown anomaly patterns and **Retrieval-Augmented Generation (RAG)** to automate the complex process of writing Suspicious Activity Reports (SARs) in compliance with PMLA 2002 and RBI guidelines.
+This project is a comprehensive **Anti-Money Laundering (AML) Monitoring System** developed as part of the **Post Graduate Diploma in Big Data Analytics (PG-DBDA)** curriculum at C-DAC. 
 
-Developed as part of an advanced computing curriculum (C-DAC), this system demonstrates end-to-end full-stack development with a heavy focus on data science and AI integration.
+It addresses the critical industry challenge of identifying sophisticated financial crimes in high-volume transaction data. By integrating **Unsupervised Machine Learning (Isolation Forest)** for anomaly detection and **Generative AI (RAG + Llama-3)** for automated compliance reporting, this system significantly reduces the manual workload of compliance officers.
 
-## 🚀 Key Technical Features
+## 🎯 Key Objectives
 
-### 1. Unsupervised Anomaly Detection (ML Engine)
-*   **Algorithm**: `Isolation Forest` (Scikit-Learn) for outlier detection in high-dimensional feature spaces.
-*   **Feature Engineering**: Vectorized processing using `Pandas` to extract behavioral features:
-    *   *Structuring/Smurfing* (transactions just below reporting thresholds).
-    *   *Round Tripping* (funds moving in circular loops).
-    *   *Money Mule Patterns* (rapid high-volume deposit & withdrawal).
-*   **Risk Scoring**: Dynamic normalization of anomaly scores to a 0-100 risk scale.
+1.  **Automated Anomaly Detection**: Analyze large datasets to detect structuring, round-tripping, and money mule patterns without predefined rules.
+2.  **Regulatory Compliance**: Ensure adherence to **PMLA 2002 (Prevention of Money Laundering Act)** and **RBI KYC Master Directions**.
+3.  **Data-Driven Reporting**: Auto-generate detailed Suspicious Activity Reports (SARs) using Retrieval-Augmented Generation (RAG).
+4.  **Real-time Visualization**: Provide an interactive dashboard for financial crime investigators.
 
-### 2. Generative AI Compliance Officer (RAG Module)
-*   **Architecture**: Retrieval-Augmented Generation (RAG) using `LangChain`.
-*   **LLM**: Meta Llama-3 (via Groq Inference Engine) for low-latency reasoning.
-*   **Vector Database**: `FAISS` (Facebook AI Similarity Search) for semantic retrieval of legal documents.
-*   **Knowledge Base**: Indexed PMLA Act 2002, RBI Master Directions, and FIU-IND reporting formats.
+## 🛠️ Technology Stack (Big Data & Analytics)
 
-### 3. Scalable Web Architecture
-*   **Backend**: `Django REST Framework` (DRF) for secure, scalable API endpoints.
-*   **Frontend**: `React.js` + `Vite` for a responsive, high-performance dashboard.
-*   **Visualization**: `Recharts` for interactive network graphs and transaction timelines.
+### Data Science & Machine Learning
+*   **Python**: Core language for data processing and backend logic.
+*   **Pandas**: High-performance data manipulation and vectorized feature engineering.
+*   **Scikit-Learn**: Implementation of the `Isolation Forest` algorithm for outlier detection.
+*   **NumPy**: Numerical computing for risk score calculations.
 
-## 📂 Project Structure
+### Generative AI & NLP
+*   **LangChain**: Orchestration framework for RAG pipeline.
+*   **Llama-3 (via Groq)**: Large Language Model for drafting legal narratives.
+*   **FAISS**: Vector database for efficient semantic search of legal documents.
 
-```bash
-├── aml_backend/        # Django Project Configuration & Settings
-├── aml_frontend/       # React.js SPA (Single Page Application)
-├── dashboard/          # Core Application Logic
-│   ├── ml/             # Machine Learning Engine (Isolation Forest)
-│   ├── rag/            # RAG Pipeline (Vector DB + LLM Integration)
-│   ├── api.py          # REST API Endpoints
-│   └── views.py        # Request Handlers
-├── data/               # Synthetic Financial Transaction Datasets
-└── requirements.txt    # Python Dependencies
-```
+### Full-Stack Web Development
+*   **Backend**: Django REST Framework (DRF) - Robust, scalable API architecture.
+*   **Frontend**: React.js + Vite - Modern, responsive user interface.
+*   **Database**: SQLite (Development) / PostgreSQL (Production-ready).
 
-## 🛠️ Installation & Setup
+## 📊 Features & Functionality
+
+### 1. Intelligent Risk Engine
+*   Ingests transaction data (CSV/Excel).
+*   Extracts behavioral features:
+    *   *Structuring Count* (Transactions just below reporting limits).
+    *   *Flow Velocity* (Rapid movement of funds).
+    *   *Round Trip patterns*.
+*   Assigns a dynamic **Risk Score (0-100)** to every account.
+
+### 2. AI Compliance Assistance
+*   **RAG System**: Retrieves relevant sections of the PMLA Act based on detected patterns.
+*   **SAR Generator**: Drafts a professional-grade Suspicious Activity Report with citations, ready for submission to FIU-IND.
+
+### 3. Investigator Dashboard
+*   Visualizes transaction networks.
+*   Displays risk trends over time.
+*   Allows case management and export.
+
+## 🚀 Installation Guide
 
 ### Prerequisites
 *   Python 3.10+
 *   Node.js & npm
 
-### 1. Backend Setup (Python/Django)
+### Backend Setup
 ```bash
 # Clone the repository
 git clone https://github.com/AkshayPatil20001/Anti-Money-Laundering-Monitoring-System.git
@@ -64,33 +71,27 @@ cd Anti-Money-Laundering-Monitoring-System
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
 
-# Install Core ML & Web Dependencies
+# Install Dependencies
 pip install -r requirements.txt
 
-# Configure Environment Variables
-# Copy the example file and add your GROQ_API_KEY for the AI engine
-cp .env.example .env
-
-# Initialize Database
+# Migrate Database
 python manage.py migrate
 
-# Start the Analysis Engine
+# Run Server
 python manage.py runserver
 ```
 
-### 2. Frontend Setup (React)
+### Frontend Setup
 ```bash
 cd aml_frontend
 npm install
 npm run dev
 ```
 
-## 🧪 Usage Workflow
-
-1.  **Data Ingestion**: Upload transaction CSVs (bulk processing supported).
-2.  **Automated Analysis**: The system runs the `RiskEngine` to flag high-risk accounts.
-3.  **Investigate**: Analysts review flagged profiles with visualized transaction graphs.
-4.  **AI Reporting**: Click **"Generate SAR"** to instantly draft a legal report citing specific violated sections of the PMLA Act.
+## 📜 Future Scope (Big Data Extension)
+*   **Spark Integration**: Utilizing PySpark for distributed processing of massive datasets.
+*   **Kafka Streaming**: Real-time fraud detection on streaming transaction logs.
+*   **Graph Database**: Implementing Neo4j for advanced link analysis between entities.
 
 ---
-*Created by [Your Name] | CDAC Project Portfolio*
+**Developed by Akshay Patil** | PG-DBDA Candidate | C-DAC
