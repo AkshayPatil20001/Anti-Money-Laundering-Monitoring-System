@@ -1,22 +1,22 @@
 @echo off
-echo Preparing to push to GitHub...
+echo.
+echo ==========================================================
+echo    PG-DBDA PROJECT PULL/PUSH SYNC
+echo ==========================================================
+echo.
 
-REM Add any uncommitted changes
 git add .
-git commit -m "Updated README and removed standalone scripts for CDAC portfolio"
+git commit -m "Final submission preparation: README update and cleanup"
 
-REM Set remote (will fail safely if already exists)
-git remote add origin https://github.com/AkshayPatil20001/Anti-Money-Laundering-Monitoring-System.git 2>nul
-
+echo Pushing to: https://github.com/AkshayPatil20001/Anti-Money-Laundering-Monitoring-System
 echo.
-echo ===================================================
-echo Pushing code to: https://github.com/AkshayPatil20001/Anti-Money-Laundering-Monitoring-System
+echo NOTE: You may be asked to sign in via browser.
 echo.
-echo You will be asked to sign in to GitHub in the browser.
-echo ===================================================
-timeout /t 3
 
 git push -u origin main
 
 echo.
+echo ==========================================================
+echo    Deploy Complete!
+echo ==========================================================
 pause
