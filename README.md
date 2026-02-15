@@ -94,4 +94,4 @@ npm run dev
 *   **Graph Database**: Implementing Neo4j for advanced link analysis between entities.
 
 ---
-**Developed by Akshay Patil** | PG-DBDA Candidate | C-DAC
+**Developed by Akshay Patil** 
